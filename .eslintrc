@@ -1,0 +1,24 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true,
+    "browser": false,
+    "es6": true
+  },
+  "rules": {
+    "object-curly-spacing": [2, "never"],
+    "space-in-parens": [
+      "error",
+      "never"
+    ],
+    "dot-notation": "error",
+    "brace-style": "error",
+    "prefer-const": "error",
+    "key-spacing": [
+      "error",
+      {
+        "mode": "strict"
+      }
+    ]
+  }
+}

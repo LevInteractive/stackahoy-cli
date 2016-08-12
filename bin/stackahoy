@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var program = require('commander');
+
+var tokenText = 'Required. Find this on the Stackahoy dashboard.';
+
+program
+  .version('1.0.0')
+  .usage('[action] [options]');
+
+program.on('--help', function() {
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ stackhoy deploy --help');
+  console.log('    $ stackhoy list --help');
+  console.log('    $ stackhoy list -t YOUR_TOKEN');
+  console.log('    $ stackhoy deploy -t YOUR_TOKEN -b staging -r REPO_ID -f');
+  console.log('    $ stackhoy deploy --token YOUR_TOKEN --branch staging --repo REPO_ID -f');
+  console.log('');
+});
+
+var _deploy = program
+  .command('deploy')
+  .usage('[options]')
+  .description('Trigger a deployment.')
+  .option('-t, --token [token]', tokenText)
+  .option('-b, --branch [branch name]', 'Required. Name of the branch to deploy.')
+  .option('-r, --repo [repo id]', 'Required. The Stackahoy repository ID.')
+  .option('-s, --skip-delivery', 'Ignore fire delivery, only execute post-commands and configuration file generation.')
+  .action(function() {
+    if (!_deploy.branch || !_deploy.repo || !_deploy.token) {
+      return _deploy.help();
+    }
+    require('../lib/main').deploy(
+      _deploy.token,
+      _deploy.repo,
+      _deploy.branch,
+      _deploy.skipDelivery ? true : false
+    );
+  })
+
+var _ls = program
+  .command('list')
+  .description('List all available repos and their branches.')
+  .option('-t, --token [token]', tokenText)
+  .action(function() {
+    if (!_ls.token) {
+      return _ls.help();
+    }
+    require('../lib/main').list(_ls.token);
+  });
+
+program.parse(process.argv);
+
+if (!program.args.length) {
+  program.help();
+}

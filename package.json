@@ -1,0 +1,34 @@
+{
+  "name": "stackahoy",
+  "preferGlobal": "true",
+  "version": "1.0.0",
+  "description": "Powerful and flexible automated builds and deployments.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LevInteractive/stackahoy-cli.git"
+  },
+  "keywords": [
+    "continuous",
+    "integration",
+    "deployment",
+    "deploy",
+    "automated"
+  ],
+  "bin": {
+    "stackahoy": "./bin/stackahoy"
+  },
+  "author": "Lev Interactive, LLC <engineers@lev-interactive.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LevInteractive/stackahoy-cli/issues"
+  },
+  "homepage": "https://github.com/LevInteractive/stackahoy-cli#readme",
+  "dependencies": {
+    "cli-color": "^1.1.0",
+    "commander": "^2.9.0",
+    "request": "^2.74.0"
+  }
+}
