@@ -31,7 +31,7 @@ stackahoy deploy \
   --branch="production"
 
 # Deploy to production, except don't sync files. Only execute post-commands and
-# delivery configuration files. This is great for something like a Docker
+# deliver configuration files. This is great for something like a Docker
 # container deployment.
 stackahoy deploy \
   --token="your-token" \
