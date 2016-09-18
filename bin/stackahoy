@@ -7,7 +7,7 @@ var program = require('commander');
 var tokenText = 'Required. Find this on the Stackahoy dashboard.';
 
 program
-  .version('1.0.3')
+  .version('1.0.4')
   .usage('[action] [options]');
 
 program.on('--help', function() {

@@ -1,7 +1,7 @@
 {
   "name": "stackahoy",
   "preferGlobal": "true",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Powerful and flexible automated builds and deployments.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
